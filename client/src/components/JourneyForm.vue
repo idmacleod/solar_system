@@ -3,6 +3,7 @@
 
     <table>
       <tr><th>Currently Orbiting:</th><td>{{ currentLocationName }}</td></tr>
+      <tr><th>Distance Travelled:</th><td>{{ distanceTravelled | format_km }}</td></tr>
       <tr>
         <th>Set Destination:</th>
         <td>
@@ -19,8 +20,8 @@
     </table>
     
     <table>
-      <tr v-if="selectedDestination"><th>Distance To Destination:</th><td>{{ distanceToDestination | format_km }}</td></tr>
-      <tr v-if="!selectedDestination"><th>Distance To Destination:</th><td>0 kilometers</td></tr>
+      <tr><th>Distance To Destination:</th><td>{{ distanceToDestination | format_km }}</td></tr>
+      <tr><th>Fuel Required:</th><td>{{ fuelRequired }}</td></tr>
       <tr colspan=2><button v-on:click="engageEngines">Engage Engines</button></tr>
     </table>
 
@@ -40,7 +41,8 @@ export default {
     return {
       currentLocationName: "Earth",
       selectedDestinationName: "",
-      fuel: 600,
+      distanceTravelled: 0,
+      fuel: 600
     };
   },
   computed: {
@@ -78,28 +80,23 @@ export default {
       );
     },
     distanceToDestination: function() {
-      if (this.selectedDestination) {
-        return this.currentLocationDetails.distance_to[
-          this.selectedDestination.id
-        ];
-      }
+      return this.selectedDestination ? this.currentLocationDetails.distance_to[this.selectedDestination.id] : 0;
     },
-    fuelNeeded: function() {
-      if (this.selectedDestination) {
-        // You can travel 40 million km on 1 unit of fuel
-        return Math.floor(this.distanceToDestination / 40000000);
-      }
-    },
+
+    fuelRequired: function() {
+      return this.selectedDestination ? Math.floor(this.distanceToDestination / 40000000) : 0;
+    }
   },
   methods: {
     engageEngines: function() {
-      if (this.fuelNeeded <= this.fuel) {
+      if (this.fuelRequired <= this.fuel) {
         eventBus.$emit("addToJourney", {
           api: this.selectedDestination,
           db: this.selectedDestinationDetails,
           distance: this.distanceToDestination,
         });
-        this.fuel -= this.fuelNeeded;
+        this.fuel -= this.fuelRequired;
+        this.distanceTravelled += this.distanceToDestination;
         this.currentLocationName = this.selectedDestinationName;
       }
       this.selectedDestinationName = "";

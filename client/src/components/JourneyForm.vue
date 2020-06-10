@@ -118,53 +118,5 @@ export default {
 </script>
 
 <style>
-#form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-#info-box {
-  color: white;
-  opacity: 100%;
-  background-color: none;
-}
-
-select, input {
-  font-family: inherit;
-  font-size: 100%;
-  background: var(--primary-color);
-  opacity: 80%;
-  color: #ffffffbb;
-  border-radius: 5px;
-  border: solid #ffffffbb 1px;
-  cursor: pointer;
-  height: 50px;
-  width: 180px;
-  margin: 20px;
-  text-align: center;
-}
-
-#banner {
-  color: white;
-  text-shadow: 4px 4px 3px #13131388;
-  margin: 10px;
-}
-
-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-h1 {
-  font-family: "Montserrat", sans-serif;
-  color: white;
-  text-shadow: 4px 4px 3px #13131388;
-  font-weight: bolder;
-}
-
-#gauge {
-  opacity: 70%;
-}
 </style>

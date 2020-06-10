@@ -1,29 +1,32 @@
 <template>
-  <div>
-    <div id="form">
-      <fuel-gauge :fuel="fuel" id="gauge"></fuel-gauge>
-      <form v-on:submit.prevent="handleSubmit">
-        <select id="select" v-model="selectedDestinationName">
-          <option value="" disabled>Select Destination</option>
-          <option
-            v-for="(destination, index) in filterPlanets"
-            :key="index"
-            :value="destination.englishName"
-            >{{ destination.englishName }}</option>
-        </select>
-        <input class="btn" type="submit" value="Add to Journey" />
-      </form>
-    </div>
-    <div id="banner">
-      <h2>
-        You are currently on {{ currentLocationName }}.
-        <span v-if="selectedDestination">
-          {{ selectedDestination.englishName }} is
-          {{ distanceToDestination | format_km }} away! 🚀
-        </span>
-      </h2>
-    </div>
-  </div>
+  <nav>
+
+    <table>
+      <tr><th>Currently Orbiting:</th><td>{{ currentLocationName }}</td></tr>
+      <tr>
+        <th>Set Destination:</th>
+        <td>
+          <select id="select" v-model="selectedDestinationName">
+            <option value="" disabled>Please Select</option>
+              <option
+                v-for="(destination, index) in filterPlanets"
+                :key="index"
+                :value="destination.englishName"
+              >{{ destination.englishName }}</option>
+            </select>
+        </td>
+      </tr>
+    </table>
+    
+    <table>
+      <tr v-if="selectedDestination"><th>Distance To Destination:</th><td>{{ distanceToDestination | format_km }}</td></tr>
+      <tr v-if="!selectedDestination"><th>Distance To Destination:</th><td>0 kilometers</td></tr>
+      <tr colspan=2><button v-on:click="engageEngines">Engage Engines</button></tr>
+    </table>
+
+    <fuel-gauge :fuel="fuel" id="gauge"></fuel-gauge>
+
+  </nav>
 </template>
 
 <script>
@@ -89,7 +92,7 @@ export default {
     },
   },
   methods: {
-    handleSubmit: function() {
+    engageEngines: function() {
       if (this.fuelNeeded <= this.fuel) {
         eventBus.$emit("addToJourney", {
           api: this.selectedDestination,

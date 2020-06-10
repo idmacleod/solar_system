@@ -34,22 +34,5 @@ export default {
 </script>
 
 <style>
-#journeyDisplay {
-  color: rgb(80, 69, 69);
-  padding: 0;
-  position: relative;
-  bottom: 95vh;
-  z-index: 2;
-  margin: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  list-style: none;
-}
 
-#distance {
-  color: white;
-  text-align: center;
-  text-shadow: 4px 4px 3px #13131388;
-}
 </style>

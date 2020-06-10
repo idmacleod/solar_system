@@ -2,10 +2,10 @@
   <nav>
 
     <table>
-      <tr><th>Currently Orbiting:</th><td>{{ currentLocationName }}</td></tr>
-      <tr><th>Distance Travelled:</th><td>{{ distanceTravelled | format_km }}</td></tr>
+      <tr><th>Currently Orbiting</th><td>{{ currentLocationName }}</td></tr>
+      <tr><th>Distance Travelled</th><td>{{ distanceTravelled | format_km }}</td></tr>
       <tr>
-        <th>Set Destination:</th>
+        <th>Set Destination</th>
         <td>
           <select id="select" v-model="selectedDestinationName">
             <option value="" disabled>Please Select</option>
@@ -20,9 +20,9 @@
     </table>
     
     <table>
-      <tr><th>Distance To Destination:</th><td>{{ distanceToDestination | format_km }}</td></tr>
-      <tr><th>Fuel Required:</th><td>{{ fuelRequired }}</td></tr>
-      <tr colspan=2><button v-on:click="engageEngines">Engage Engines</button></tr>
+      <tr><th>Distance To Destination</th><td>{{ distanceToDestination | format_km }}</td></tr>
+      <tr><th>Fuel Required</th><td>{{ fuelRequired }}</td></tr>
+      <tr><th>Engines</th><td><button v-on:click="engageEngines">Engage</button></td></tr>
     </table>
 
     <fuel-gauge :fuel="fuel" id="gauge"></fuel-gauge>
@@ -107,5 +107,29 @@ export default {
 </script>
 
 <style>
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+nav table {
+  border: 2px solid black;
+  padding: 5px;
+}
+
+nav th {
+  text-align: right;
+  background: black;
+  color: white;
+  padding: 5px;
+}
+
+nav td {
+  padding: 5px;
+}
+
+select, button {
+  font-family: inherit;
+}
 </style>

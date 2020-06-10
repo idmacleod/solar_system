@@ -41,5 +41,14 @@ export default {
 </script>
 
 <style>
+#app {
+  font-family: 'Quicksand', sans-serif;
+}
 
+header h1 {
+  background: black;
+  color: white;
+  margin: 0 0 10px 0;
+  padding: 10px;
+}
 </style>

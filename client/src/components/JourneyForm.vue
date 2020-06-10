@@ -1,9 +1,5 @@
 <template>
   <div>
-    <header>
-      <h1>Solar System Explorer</h1>
-    </header>
-
     <div id="form">
       <fuel-gauge :fuel="fuel" id="gauge"></fuel-gauge>
       <form v-on:submit.prevent="handleSubmit">
@@ -18,7 +14,6 @@
         <input class="btn" type="submit" value="Add to Journey" />
       </form>
     </div>
-
     <div id="banner">
       <h2>
         You are currently on {{ currentLocationName }}.
@@ -28,7 +23,6 @@
         </span>
       </h2>
     </div>
-
   </div>
 </template>
 

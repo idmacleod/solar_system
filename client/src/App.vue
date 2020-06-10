@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <header>
+      <h1>Space Oddity</h1>
+    </header>
     <journey-form :all_destinations="all_destinations" :details="details" />
     <journey-display />
   </div>

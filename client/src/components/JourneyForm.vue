@@ -46,43 +46,38 @@ export default {
     };
   },
   computed: {
-    // selectedDestinationName is only the name - this function will retrieve the full Object
+    currentLocation: function() {
+      return this.all_destinations.find(
+        destination => destination.englishName === this.currentLocationName
+      );
+    },
+    currentLocationDetails: function() {
+      return this.details.find(
+        destination => destination.api_id === this.currentLocation.id
+      );
+    },
     selectedDestination: function() {
       if (this.selectedDestinationName) {
         return this.all_destinations.find(
-          (destination) =>
-            destination.englishName === this.selectedDestinationName
+          destination => destination.englishName === this.selectedDestinationName
         );
       }
     },
     selectedDestinationDetails: function() {
       if (this.selectedDestination) {
         return this.details.find(
-          (destination) => destination.api_id === this.selectedDestination.id
+          destination => destination.api_id === this.selectedDestination.id
         );
       }
     },
     filterPlanets: function() {
       return this.all_destinations.filter(
-        (destination) =>
-          destination.englishName != this.currentLocationName &&
-          this.hasDetails(destination)
-      );
-    },
-    currentLocation: function() {
-      return this.all_destinations.find(
-        (destination) => destination.englishName === this.currentLocationName
-      );
-    },
-    currentLocationDetails: function() {
-      return this.details.find(
-        (destination) => destination.api_id === this.currentLocation.id
+        destination => destination.englishName != this.currentLocationName && this.hasDetails(destination)
       );
     },
     distanceToDestination: function() {
       return this.selectedDestination ? this.currentLocationDetails.distance_to[this.selectedDestination.id] : 0;
     },
-
     fuelRequired: function() {
       return this.selectedDestination ? Math.floor(this.distanceToDestination / 40000000) : 0;
     }
@@ -102,7 +97,7 @@ export default {
       this.selectedDestinationName = "";
     },
     hasDetails: function(destination) {
-      return this.details.some((details) => details.api_id === destination.id);
+      return this.details.some(details => details.api_id === destination.id);
     },
   },
   components: {

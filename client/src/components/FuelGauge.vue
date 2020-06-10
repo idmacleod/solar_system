@@ -18,14 +18,13 @@ export default {
   data: function () {
     return {
       chartOptions: {
+        height: 110,
+        max: 600,
         redFrom: 0,
         redTo: 50,
         yellowFrom: 51,
         yellowTo: 150,
-        minorTicks: 10,
-        max: 600,
-        height: 500,
-        width: 150
+        minorTicks: 10
       }
     }
   },

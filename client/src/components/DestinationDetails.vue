@@ -1,38 +1,17 @@
 <template>
-  <div id="info-box">
-    <div id="text">
-      <h2>{{ englishName }} - {{ symbol }}</h2>
-      <br>
-      <ul>
-        <li>
-          <span class="label">Mean Diameter: </span>{{ diameter }} kilometers
-        </li>
-        <li>
-          <span class="label">Gravity: </span>{{ gravity }} m/s per second
-        </li>
-        <li><span class="label">Escape Velocity: </span>{{ escape }} Meters per second</li>
-        <li>
-          <span class="label">Density: </span>{{ density }} grams per cubic cm
-        </li>
-        <li v-if="moonCount">
-          <span class="label">Number Of Moons: </span>{{ moonCount }}
-        </li>
-        <li v-if="discoveredBy">
-          <span class="label">Discovered By: </span>{{ discoveredBy }}
-        </li>
-        <li v-if="discoveryDate">
-          <span class="label">Discovery Date: </span>{{ discoveryDate }}
-        </li>
-        <br>
-        <li v-if="description">
-          <span class="label">Description: </span>{{ description }}
-        </li>
-        <br>
-        <li v-if="mythology">
-          <span class="label">Mythology: </span>{{ mythology }}
-        </li>
-      </ul>
-    </div>
+  <div id="destination-details">
+    <h2>{{ englishName }} - {{ symbol }}</h2>
+    <ul>
+      <li><span class="label">Mean Diameter: </span>{{ diameter }} kilometers</li>
+      <li><span class="label">Gravity: </span>{{ gravity }} m/s per second</li>
+      <li><span class="label">Escape Velocity: </span>{{ escape }} Meters per second</li>
+      <li><span class="label">Density: </span>{{ density }} grams per cubic cm</li>
+      <li v-if="moonCount"><span class="label">Number Of Moons: </span>{{ moonCount }}</li>
+      <li v-if="discoveredBy"><span class="label">Discovered By: </span>{{ discoveredBy }}</li>
+      <li v-if="discoveryDate"><span class="label">Discovery Date: </span>{{ discoveryDate }}</li>
+      <li v-if="description"><span class="label">Description: </span>{{ description }}</li>
+      <li v-if="mythology"><span class="label">Mythology: </span>{{ mythology }}</li>
+    </ul>
     <img :src="destination.db.photo" />
   </div>
 </template>
@@ -80,14 +59,6 @@ export default {
 </script>
 
 <style>
-#info-box {
-  border: 5px solid gray;
-  display: flex;
-  background-color: #ffffff33;
-  align-items: center;
-  margin: 20px;
-}
-
 ul {
   list-style: none;
 }
@@ -97,15 +68,5 @@ img {
   max-width: 300px;
   width: auto;
   height: auto;
-}
-
-#text {
-  margin: 20px;
-}
-
-.label {
-  font-weight: bolder;
-  font-style: italic;
-  text-decoration: underline;
 }
 </style>

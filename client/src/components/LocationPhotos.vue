@@ -1,5 +1,4 @@
 <template>
-<!-- Ultimately unused, as random photos selected from the API were not as relevant as we had hoped -->
   <div id="photo-section">
     <img :src="randomPhoto" />
   </div>
@@ -46,21 +45,16 @@ export default {
 
 <style>
 #photo-section {
-  /* border: 3px solid blue; */
-  
   display: flex;
- 
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
 
-
 img {
   margin: 0px;
   padding: 0px;
   height: 200px;
-  
 }
 </style>
 

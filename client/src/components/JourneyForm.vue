@@ -1,7 +1,7 @@
 <template>
   <nav>
 
-    <table>
+    <table class="tbl">
       <tr><th>Currently Orbiting</th><td>{{ currentLocationName }}</td></tr>
       <tr><th>Distance Travelled</th><td>{{ distanceTravelled | format_km }}</td></tr>
       <tr>
@@ -19,7 +19,7 @@
       </tr>
     </table>
     
-    <table>
+    <table class="tbl">
       <tr><th>Distance To Destination</th><td>{{ distanceToDestination | format_km }}</td></tr>
       <tr><th>Fuel Required</th><td>{{ fuelRequired }}</td></tr>
       <tr><th>Engines</th><td><button v-on:click="engageEngines">Engage</button></td></tr>
@@ -113,9 +113,11 @@ nav {
   align-items: center;
 }
 
-nav table {
+nav table.tbl {
   border: 2px solid black;
+  border-collapse: collapse;
   padding: 5px;
+  box-shadow: 5px 5px 10px #00000066;
 }
 
 nav th {

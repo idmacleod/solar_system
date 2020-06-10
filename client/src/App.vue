@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <header>
-      <h1>Space Oddity</h1>
+      <h1>Space Oddity ~ ~ ~</h1>
     </header>
     <journey-form :all_destinations="all_destinations" :details="details" />
     <journey-display />
@@ -42,14 +42,14 @@ export default {
 
 <style>
 #app {
-  font-family: 'Crimson Text';
+  font-family: 'Inconsolata';
 }
 
 header h1 {
   font-family: 'Nixie One';
   background: black;
   color: white;
-  margin: 0 0 10px 0;
+  margin: 0;
   padding: 10px;
 }
 </style>

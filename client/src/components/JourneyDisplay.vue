@@ -1,5 +1,5 @@
 <template lang="html">
-  <div id="journeyDisplay">
+  <div id="journey-display">
     <destination-details
       v-for="(destination, index) in journey"
       :key="index"
@@ -31,5 +31,9 @@ export default {
 </script>
 
 <style>
-
+#journey-display {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
 </style>

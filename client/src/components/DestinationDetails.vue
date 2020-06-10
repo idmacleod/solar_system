@@ -1,17 +1,17 @@
 <template>
   <div id="destination-details">
     <h2>{{ englishName }} - {{ symbol }}</h2>
-    <ul>
-      <li><span class="label">Mean Diameter: </span>{{ diameter }} kilometers</li>
-      <li><span class="label">Gravity: </span>{{ gravity }} m/s per second</li>
-      <li><span class="label">Escape Velocity: </span>{{ escape }} Meters per second</li>
-      <li><span class="label">Density: </span>{{ density }} grams per cubic cm</li>
-      <li v-if="moonCount"><span class="label">Number Of Moons: </span>{{ moonCount }}</li>
-      <li v-if="discoveredBy"><span class="label">Discovered By: </span>{{ discoveredBy }}</li>
-      <li v-if="discoveryDate"><span class="label">Discovery Date: </span>{{ discoveryDate }}</li>
-      <li v-if="description"><span class="label">Description: </span>{{ description }}</li>
-      <li v-if="mythology"><span class="label">Mythology: </span>{{ mythology }}</li>
-    </ul>
+    <table>
+      <tr><th>Mean Diameter:</th><td>{{ diameter }} km</td></tr>
+      <tr><th>Gravity:</th><td>{{ gravity }} m/s per second</td></tr>
+      <tr><th>Escape Velocity:</th><td>{{ escape }} m/s</td></tr>
+      <tr><th>Density:</th><td>{{ density }} grams per cubic cm</td></tr>
+      <tr v-if="moonCount"><th>Number Of Moons:</th><td>{{ moonCount }}</td></tr>
+      <tr v-if="discoveredBy"><th>Discovered By:</th><td>{{ discoveredBy }}</td></tr>
+      <tr v-if="discoveryDate"><th>Discovery Date:</th><td>{{ discoveryDate }}</td></tr>
+    </table>
+    <div v-if="description"><h3>Description</h3><p>{{ description }}</p></div>
+    <div v-if="mythology"><h3>Mythology</h3><p>{{ mythology }}</p></div>
     <img :src="destination.db.photo" />
   </div>
 </template>

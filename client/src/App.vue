@@ -42,10 +42,11 @@ export default {
 
 <style>
 #app {
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Crimson Text';
 }
 
 header h1 {
+  font-family: 'Nixie One';
   background: black;
   color: white;
   margin: 0 0 10px 0;

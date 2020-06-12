@@ -1,6 +1,11 @@
 <template>
   <div id="journey-symbols">
-    <h1><span class="sym">⨁</span></h1>
+    <h1>
+      <span class="sym">⨁</span>
+      <span v-for="(symbol, index) in symbols" :key="index" :symbol="symbol">
+        <span>  ~  </span><span class="sym">{{ symbol }}</span>
+      </span>
+    </h1>
   </div>
 </template>
 
@@ -17,6 +22,20 @@ export default {
   background: black;
   color: white;
   margin: 0 0 10px 0;
-  padding: 10px;
+  padding: 10px 20px;
+}
+
+.sym {
+  display: inline-block;
+  animation: 5s linear infinite spin;
+}
+
+@keyframes spin {
+  from {
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(360deg);
+  }
 }
 </style>

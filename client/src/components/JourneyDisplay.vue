@@ -1,6 +1,6 @@
 <template lang="html">
   <div id="journey-display">
-    <journey-symbols />
+    <journey-symbols :symbols="symbols" />
     <div id="cards">
       <destination-details
         v-for="(destination, index) in journey"

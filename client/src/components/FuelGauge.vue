@@ -18,7 +18,7 @@ export default {
   data: function () {
     return {
       chartOptions: {
-        height: 110,
+        height: 150,
         max: 600,
         redFrom: 0,
         redTo: 50,

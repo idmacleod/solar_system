@@ -18,14 +18,14 @@
         </td>
       </tr>
     </table>
+
+    <fuel-gauge :fuel="fuel" id="gauge"></fuel-gauge>
     
     <table class="tbl">
       <tr><th>Distance To Destination</th><td>{{ distanceToDestination | format_km }}</td></tr>
       <tr><th>Fuel Required</th><td>{{ fuelRequired }}</td></tr>
       <tr><th>Engines</th><td><button v-on:click="engageEngines">Engage</button></td></tr>
     </table>
-
-    <fuel-gauge :fuel="fuel" id="gauge"></fuel-gauge>
 
   </nav>
 </template>
